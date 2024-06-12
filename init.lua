@@ -167,6 +167,28 @@ vim.keymap.set('n', ']d', vim.diagnostic.goto_next, { desc = 'Go to next [D]iagn
 vim.keymap.set('n', '<leader>e', vim.diagnostic.open_float, { desc = 'Show diagnostic [E]rror messages' })
 vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist, { desc = 'Open diagnostic [Q]uickfix list' })
 
+vim.keymap.set('n', '<leader>+', '<C-a>')
+vim.keymap.set('n', '<leader>-', '<C-x>')
+
+-- window splitting
+vim.keymap.set('n', '<leader>_', '<C-w>s')
+vim.keymap.set('n', '<leader>|', '<C-w>v')
+vim.keymap.set('n', '<leader>se', '<C-w>=')
+vim.keymap.set('n', '<leader>sx', ':close<CR>')
+
+-- window navigation
+vim.keymap.set('n', '<leader>wh', '<C-w>h') -- left
+vim.keymap.set('n', '<leader>wj', '<C-w>j') -- down
+vim.keymap.set('n', '<leader>wk', '<C-w>k') -- up
+vim.keymap.set('n', '<leader>wl', '<C-w>l') -- right
+vim.keymap.set('n', '<leader>wm', ':MaximizerToggle<CR>') -- maximize
+
+-- tabs
+vim.keymap.set('n', '<leader>tn', ':tabnew<CR>')
+vim.keymap.set('n', '<leader>tx', ':tabclose<CR>')
+vim.keymap.set('n', '<leader>tl', ':tabn<CR>')
+vim.keymap.set('n', '<leader>th', ':tabp<CR>')
+
 -- Exit terminal mode in the builtin terminal with a shortcut that is a bit easier
 -- for people to discover. Otherwise, you normally need to press <C-\><C-n>, which
 -- is not what someone will guess without a bit more experience.
