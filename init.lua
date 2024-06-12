@@ -599,8 +599,29 @@ require('lazy').setup({
         --    https://github.com/pmizio/typescript-tools.nvim
         --
         -- But for many setups, the LSP (`tsserver`) will work just fine
-        -- tsserver = {},
-        --
+        tsserver = {
+          -- JS & TS support
+          cmd = { 'typescript-language-server', '--stdio' },
+          filetypes = { 'javascript', 'javascriptreact', 'javascript.jsx', 'typescript', 'typescriptreact', 'typescript.tsx' },
+          capabilities = {
+            textDocument = {
+              completion = {
+                completionItem = {
+                  -- You can set this to 'Snippet' if you want to use snippets
+                  --  with your completion. This is useful for things like
+                  --  `react` or `vue` where you have a lot of boilerplate.
+                  snippetSupport = false,
+                },
+              },
+            },
+          },
+        },
+
+        codespell = {
+          cmd = { 'codespell' },
+          filetypes = {},
+        },
+        
         elixirls = {
           cmd = { 'elixir-ls' },
         },
@@ -691,11 +712,14 @@ require('lazy').setup({
       formatters_by_ft = {
         lua = { 'stylua' },
         -- Conform can also run multiple formatters sequentially
-        -- python = { "isort", "black" },
+        python = { "isort", "black" },
         --
         -- You can use a sub-list to tell conform to run *until* a formatter
         -- is found.
-        -- javascript = { { "prettierd", "prettier" } },
+        javascript = { { "prettierd", "prettier" } },
+        typescript = { { "prettierd", "prettier" } },
+        typescriptreact = { { "prettierd", "prettier" } },
+        javascriptreact = { { "prettierd", "prettier" } },
       },
     },
   },
